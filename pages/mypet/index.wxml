@@ -1,0 +1,42 @@
+<view class="contain">
+  <view class="content_panel_head">
+    <view class="head_left">
+      <view class="head">
+        <image class="headimage" src="{{ headimage }}"></image>
+      </view>
+      <view class="nickname">
+        <text>{{nickname}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="content_panel_head">
+    <view class="head_left">
+      <view class="head">
+        <image class="headimage" src="{{ headimage }}"></image>
+      </view>
+      <view class="nickname">
+        <text>{{nickname}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="content_panel_head">
+    <view class="head_left">
+      <view class="head">
+        <image class="headimage" src="{{ headimage }}"></image>
+      </view>
+      <view class="nickname">
+        <text>{{nickname}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="content_panel_head">
+    <view class="head_left">
+      <view class="head">
+        <image class="headimage" src="{{ headimage }}"></image>
+      </view>
+      <view class="nickname">
+        <text>{{nickname}}</text>
+      </view>
+    </view>
+  </view>
+</view>

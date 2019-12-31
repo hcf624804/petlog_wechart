@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/informationflow/index",
+    "pages/mypet/index",
+    "pages/searchforfavors/index",
+    "pages/sharepet/sharepet"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#D5496D",
+    "navigationBarTitleText": "宠物日记",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#000000",
+    "selectedColor": "#ffffff",
+    "borderStyle": "black",
+    "backgroundColor": "#D5496D",
+    "list": [
+      {
+        "pagePath": "pages/informationflow/index",
+        "iconPath": "/image/informationflow.png",
+        "selectedIconPath": "/image/informationflow_1.png",
+        "text": "宠物广场"
+      },
+      {
+        "pagePath": "pages/searchforfavors/index",
+        "iconPath": "/image/searchforfavors.png",
+        "selectedIconPath": "/image/searchforfavors_1.png",
+        "text": "寻宠启事"
+      },
+      {
+        "pagePath": "pages/mypet/index",
+        "iconPath": "/image/mypet.png",
+        "selectedIconPath": "/image/mypet_1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
