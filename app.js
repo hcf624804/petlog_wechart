@@ -10,7 +10,7 @@ App({
     wx.login({
       success: res => {
         console.log(res)
-        console.log("执行")
+        console.log("执行111")
         wx.request({
           url: that.globalData.url + '/login/getOpenid',
           data: {
