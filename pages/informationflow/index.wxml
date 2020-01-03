@@ -13,7 +13,7 @@
         <view class="content_panel_head">
           <view class="head_left">
             <view class="head">
-              <image class="headimage" src="../../image/head.jpg"></image>
+              <image class="headimage" src="{{data.headimage}}"></image>
             </view>
             <view class="nickname">
               <text>{{data.nickname}}</text>
@@ -37,14 +37,14 @@
           <view class="time">
             <text>{{data.time}}</text>
           </view>
-          <view class="like_view">
+          <view class="like_view" data-contentid="{{data.id}}" bindtap="likeContent">
             <image wx:if="{{data.like}}" src="../../image/like.png" style="width:48rpx;height:48rpx;"></image>
             <image wx:if="{{!data.like}}" src="../../image/like_1.png" style="width:48rpx;height:48rpx;"></image> 
           </view>
-          <view class="likecount">
+          <view class="likecount" data-contentid="{{data.id}}" bindtap="likeContent">
               <text>{{data.likecount}}</text>
           </view>
-          <view class="talk_view">
+          <view class="talk_view" data-contentid="{{data.id}}" bindtap="likeContent">
             <image src="../../image/talk.png" style="width:48rpx;height:48rpx;"></image>
           </view>
           <view class="talkcount">

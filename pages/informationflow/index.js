@@ -81,7 +81,8 @@ console.log(page_index)
       url: app.globalData.url + '/content/getContentFlow',
       method: 'post',
       data: {
-        "page":page_index 
+        "page":page_index,
+        "userId":app.globalData.user_id
       },
       header: {
         "Content-Type": "application/json"
@@ -97,9 +98,14 @@ console.log(page_index)
             imageArr.push(app.globalData.url+"/content/image/"+images[i])
           }
           mydata.push({
+            id:arr[j].id,
             text: arr[j].content,
             images: imageArr,
-            time:arr[j].sdfCreateDate
+            time:arr[j].sdfCreateDate,
+            like:arr[j].like,
+            likecount:arr[j].likeCount,
+            nickname:arr[j].nickname,
+            headimage:arr[j].headimage
           })
         }
         page_index = page_index  + 1;
@@ -113,7 +119,38 @@ console.log(page_index)
       }
     })
   },
-
+  //红心
+  likeContent:function(e){
+      var that= this
+      var id = e.currentTarget.dataset['contentid'];
+      var mydata = that.data.mydata
+      console.log("点赞" + id)
+      wx.request({
+        url: app.globalData.url + '/content/likeContent',
+        method: 'post',
+        data: {
+          "id":id,
+          "userId":app.globalData.user_id
+        },
+        header: {
+          "Content-Type": "application/json"
+        },
+        success(res) {
+          console.log(res)
+          for(var i=0;i<mydata.length;i++){
+            if(mydata[i].id == res.data.data.id){
+              mydata[i].like = res.data.data.like
+              mydata[i].likecount = res.data.data.likeCount
+            }
+          }
+          that.setData({
+            mydata: mydata
+          })
+        },
+        fail(res) {
+        }
+      })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
