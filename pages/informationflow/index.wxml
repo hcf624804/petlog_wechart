@@ -1,58 +1,67 @@
 <view class="page">
   <view class="page_bg">
-    <view>
-      <view class="hover_button">
-        <view class="hover_button_index hover_button_1" bindtap="xiuyixiu">秀一秀</view>
-        <view class="hover_button_index hover_button_2" bindtap="shuaxin">刷新</view>
-        <view class="hover_button_index hover_button_3"></view>
-      </view>
-    </view>
-    <scroll-view scroll-y style="height: 100%;overflow:hidden;margin-top:50rpx;" bindscrolltolower="scrollHandler">
-      <view class="panel" wx:for="{{mydata}}" wx:for-item="data">
-      <view class="mycontent">
-        <view class="content_panel_head">
-          <view class="head_left">
-            <view class="head">
-              <image class="headimage" src="{{data.headimage}}"></image>
+    <scroll-view scroll-y class="scroll_view" animation="{{animation}}">
+      <view class="panel" wx:for="{{mydata}}" wx:for-item="data" wx:if="{{!index}}">
+        <view class="mycontent">
+          <view class="content_panel_head">
+            <view class="head_left">
+              <view class="head">
+                <image class="headimage" src="{{data.headimage}}"></image>
+              </view>
+              <view class="nickname">
+                <text>{{data.nickname}}</text>
+              </view>
             </view>
-            <view class="nickname">
-              <text>{{data.nickname}}</text>
-            </view>
-          </view>
-          <view class="head_right">
-            <view wx:if="{{!data.watch}}" class="watch">
-              <text class="watch_text">+关注</text>
+            <view class="head_right">
+              <view wx:if="{{!data.watch}}" class="watch">
+                <text class="watch_text">+关注</text>
+              </view>
             </view>
           </view>
-        </view>
-        <view class="content_text">
-          <text>{{data.text}}</text>
-        </view>
-        <view class="content_image">
-          <view wx:for="{{data.images}}" wx:for-item="image" class="images">
-            <image src="{{image}}" class="image" bindtap="clickImg" data-imgsrc="{{image}}" data-list="{{data.images}}"></image>
+          <view class="content_text">
+            <text>{{data.text}}</text>
           </view>
-        </view>
-        <view class="content_panel_foot">
-          <view class="time">
-            <text>{{data.time}}</text>
+          <view class="content_image">
+            <view wx:for="{{data.images}}" wx:for-item="image" class="images">
+              <image src="{{image}}" class="image" bindtap="clickImg" data-imgsrc="{{image}}" data-list="{{data.images}}"></image>
+            </view>
           </view>
-          <view class="like_view" data-contentid="{{data.id}}" bindtap="likeContent">
-            <image wx:if="{{data.like}}" src="../../image/like.png" style="width:48rpx;height:48rpx;"></image>
-            <image wx:if="{{!data.like}}" src="../../image/like_1.png" style="width:48rpx;height:48rpx;"></image> 
-          </view>
-          <view class="likecount" data-contentid="{{data.id}}" bindtap="likeContent">
-              <text>{{data.likecount}}</text>
-          </view>
-          <view class="talk_view" data-contentid="{{data.id}}" bindtap="likeContent">
-            <image src="../../image/talk.png" style="width:48rpx;height:48rpx;"></image>
-          </view>
-          <view class="talkcount">
-              <text>{{data.talkcount}}</text>
+          <view class="content_panel_foot">
+            <view class="time">
+              <text>{{data.time}}</text>
+            </view>
+            <view class="like_view" data-contentid="{{data.id}}" bindtap="likeContent">
+              <image wx:if="{{data.like}}" src="../../image/like.png" style="width:48rpx;height:48rpx;"></image>
+              <image wx:if="{{!data.like}}" src="../../image/like_1.png" style="width:48rpx;height:48rpx;"></image> 
+            </view>
+            <view class="likecount" data-contentid="{{data.id}}" bindtap="likeContent">
+                <text>{{data.likecount}}</text>
+            </view>
+            <view class="talk_view" data-contentid="{{data.id}}" bindtap="likeContent">
+              <image src="../../image/talk.png" style="width:48rpx;height:48rpx;"></image>
+            </view>
+            <view class="talkcount">
+                <text>{{data.talkcount}}</text>
+            </view>
           </view>
         </view>
       </view>
+      <view wx:if="{{index}}">
+        关于这个小程序。。。
       </view>
     </scroll-view>
+    <view class="hover_button">
+      <view class="qiehuan" bindtap="move2right">
+        <view class="qiehuan_wenzi" wx:if="{{!index}}">上一个</view>
+        <view class="qiehuan_wenzi_none" wx:if="{{index}}">没有啦</view>
+      </view>
+      <view class="xiuyixiu" bindtap="xiuyixiu">
+        <view class="xiuyixiu_wenzi">秀一秀</view>
+      </view>
+      <view class="qiehuan_xiayige" bindtap="move2left">
+        <view class="qiehuan_xiayige_wenzi">下一个</view>
+      </view>
+    </view>
+    <view class="panel_border"></view>
   </view>
 </view>

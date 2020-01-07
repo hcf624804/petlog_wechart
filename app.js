@@ -76,8 +76,8 @@ App({
   globalData: {
     userInfo: null,
     user_id: null,
-    //url:'http://localhost:8080'
+    url:'http://localhost:8080'
     //url:'https://huangchaofei.xyz/wechartminiprogram'
-    url:'http://106.52.245.135/wechartminiprogram'
+    //url:'http://106.52.245.135/wechartminiprogram'
   }
 })

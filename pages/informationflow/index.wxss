@@ -11,7 +11,6 @@
   background: rgb(240, 240, 240);
 }
 .mycontent{
-  margin-top: 20rpx;
   min-height: 200rpx;
   position: relative;
   background: white;
@@ -19,6 +18,7 @@
   margin-left: 3%;
   border-radius: 10rpx;
   flex-direction: row;
+  height: 90%;
 }
 .content_panel_head{
   display: flex;
@@ -119,35 +119,84 @@
   border-radius: 15rpx;
   background-color: pink;
 }
-.hover_button{
-  width: 100%;
-  position: absolute;
-  height: 65rpx;
-  background: #D5496D;
-  z-index: 10;
-  display: flex;
-}
-.hover_button_index{
-  width: 250rpx;
+.scroll_view{
+  margin-top: 20rpx;
   height: 100%;
-  text-align:center;
+  overflow:hidden;
+}
+.xiuyixiu{
+  position: absolute;
+  bottom: -150rpx;
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 150rpx;
+  background-color: #D5496D;
+  z-index: 100;
+  margin-left: 225rpx;
   color: white;
+  justify-content:center;
+  vertical-align:middle;
+  display:flex;
 }
-.hover_button_1::after{
+.qiehuan{
   position: absolute;
-  left: 250rpx;
-  content: "";
-  width:4rpx;
-  height: 65rpx;
-  background: white;
-  z-index: 11;
+  width: 225rpx;
+  height: 80rpx;
+  bottom: 0rpx;
+  left: 20rpx;
+  background-color: #D5496D;
+  color: white;
+  justify-content:center;
+  vertical-align:middle;
+  display:flex;
+  border-radius: 40rpx;
 }
-.hover_button_2::after{
+.qiehuan_xiayige{
   position: absolute;
-  left: 500rpx;
-  content: "";
-  width:4rpx;
-  height: 65rpx;
-  background: white;
-  z-index: 11;
+  width: 225rpx;
+  height: 80rpx;
+  bottom: 0rpx;
+  right: 20rpx;
+  background-color: #D5496D;
+  color: white;
+  justify-content:center;
+  vertical-align:middle;
+  display:flex;
+  border-radius: 40rpx;
+}
+.qiehuan_wenzi{
+  font-size: 30rpx;
+  margin-top: 0rpx;
+  line-height: 80rpx;
+  margin-left: -40rpx;
+}
+.qiehuan_wenzi_none{
+  font-size: 30rpx;
+  margin-top: 0rpx;
+  line-height: 80rpx;
+  margin-left: -40rpx;
+}
+.qiehuan_xiayige_wenzi{
+  font-size: 30rpx;
+  margin-top: 0rpx;
+  line-height: 80rpx;
+  margin-left: 20rpx;
+}
+.xiuyixiu_wenzi{
+  font-size: 50rpx;
+  margin-top: 50rpx;
+  height: 50rpx;
+}
+.panel{
+  height: 100%;
+}
+.panel_border{
+  position: absolute;
+  bottom: -180rpx;
+  width: 360rpx;
+  height: 360rpx;
+  border-radius: 180rpx;
+  z-index: 50;
+  background-color: rgb(240, 240, 240);
+  margin-left: 195rpx;
 }

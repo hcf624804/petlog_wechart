@@ -1,5 +1,7 @@
 // pages/informationflow/index.js
 var app = getApp()
+var startX, endX;
+var moveFlag = true;// 判断执行滑动事件
 Page({
 
   /**
@@ -8,7 +10,8 @@ Page({
   data: {
     mydata:[],
     promydata:[],
-    page_index:1
+    page_index:1,
+    index:false
   },
 
   /**
@@ -75,7 +78,7 @@ Page({
     console.log("获取动态...")
     var that = this
     var page_index = this.data.page_index;
-console.log(page_index)
+    console.log(page_index)
     console.log(app.globalData.url + '/content/getContentFlow');
     wx.request({
       url: app.globalData.url + '/content/getContentFlow',
@@ -108,12 +111,9 @@ console.log(page_index)
             headimage:arr[j].headimage
           })
         }
-        page_index = page_index  + 1;
         that.setData({
           mydata: mydata,
-          page_index :page_index 
         })
-
       },
       fail(res) {
       }
@@ -210,19 +210,19 @@ console.log(page_index)
     
   },
   scrollHandler:function(){
-    let mydata = this.data.mydata
-    mydata.push({
-      text: '随便写点什么4'
-    })
-    mydata.push({
-      text: '随便写点什么5'
-    })
-    mydata.push({
-      text: '随便写点什么6'
-    })
-    this.setData({
-      mydata: mydata
-    })
+    // let mydata = this.data.mydata
+    // mydata.push({
+    //   text: '随便写点什么4'
+    // })
+    // mydata.push({
+    //   text: '随便写点什么5'
+    // })
+    // mydata.push({
+    //   text: '随便写点什么6'
+    // })
+    // this.setData({
+    //   mydata: mydata
+    // })
   },
   //秀一秀
   xiuyixiu:function(){
@@ -235,5 +235,91 @@ console.log(page_index)
    */
   onShareAppMessage: function () {
 
+  },
+  touchStart: function (e) {
+    startX = e.touches[0].pageX; // 获取触摸时的原点
+    moveFlag = true;
+  },
+  // 触摸移动事件
+  touchMove: function (e) {
+    endX = e.touches[0].pageX; // 获取触摸时的原点
+    if (moveFlag) {
+      if (endX - startX > 50) {
+        console.log("move right");
+        this.move2right();
+        moveFlag = false;
+      }
+      if (startX - endX > 50) {
+        console.log("move left");
+        this.move2left();
+        moveFlag = false;
+      }
+    }
+  },
+  // 触摸结束事件
+  touchEnd: function (e) {
+    moveFlag = true; // 回复滑动事件
+  },
+  //向左滑动操作
+  move2left() {
+    var that = this;
+    // if (this.data.page_index == 0) {
+    //   return
+    // }
+    var animation = wx.createAnimation({
+      duration: 680,
+      timingFunction: "ease",
+    });
+    animation.translateY(0).rotate(-20).translateX(-500).opacity(0).step();
+    animation.translateY(0).translateX(0).opacity(1).rotate(0).step({
+      duration: 10
+    });
+    this.setData({
+      animation: animation.export()
+    })
+    var page_index = this.data.page_index;
+    page_index = page_index + 1;
+    setTimeout(function () {
+      that.setData({
+        page_index: page_index,
+        mydata:[]
+      });
+      that.getContentFlow()
+    }, 600)
+  },
+  //向右滑动操作
+  move2right() {
+    console.log("上一个")
+    var that = this;
+    if (this.data.page_index == 0) {
+      return
+    }
+    var animation = wx.createAnimation({
+      duration: 680,
+      timingFunction: "ease",
+    });
+    animation.translateY(0).rotate(20).translateX(500).opacity(0).step();
+    animation.translateY(0).translateX(0).opacity(1).rotate(0).step({
+      duration: 10
+    });
+    this.setData({
+      animation: animation.export()
+    })
+    var page_index = this.data.page_index;
+    page_index = page_index - 1;
+    var index = false;
+    if(page_index == 0){
+      index = true;
+    }
+    setTimeout(function () {
+      that.setData({
+        page_index: page_index,
+        mydata:[],
+        index:index
+      });
+      if(!index){
+        that.getContentFlow()
+      }
+    }, 600)
   }
 })
