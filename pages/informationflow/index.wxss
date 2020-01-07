@@ -6,6 +6,7 @@
   position: fixed;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 .page_bg{
   background: rgb(240, 240, 240);
@@ -19,6 +20,7 @@
   margin-left: 3%;
   border-radius: 10rpx;
   flex-direction: row;
+  height: 90%;
 }
 .content_panel_head{
   display: flex;
@@ -150,4 +152,42 @@
   height: 65rpx;
   background: white;
   z-index: 11;
+}
+.xiuyixiu{
+  position: absolute;
+  bottom: -150rpx;
+  width: 300rpx;
+  height: 300rpx;
+  border-radius: 150rpx;
+  background-color: #D5496D;
+  z-index: 100;
+  margin-left: 225rpx;
+  color: white;
+  justify-content:center;
+  vertical-align:middle;
+  display:flex;
+}
+.panel_border{
+  position: absolute;
+  bottom: -180rpx;
+  width: 360rpx;
+  height: 360rpx;
+  border-radius: 180rpx;
+  z-index: 50;
+  background-color: rgb(240, 240, 240);
+  margin-left: 195rpx;
+}
+.xiuyixiu_wenzi{
+  font-size: 50rpx;
+  margin-top: 50rpx;
+  height: 50rpx;
+}
+.panl{
+  height: 100%;
+  width: 100%;
+  overflow:hidden;
+  margin-top:5rpx;
+}
+.panel{
+  height: 100%;
 }

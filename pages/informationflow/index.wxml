@@ -1,13 +1,13 @@
 <view class="page">
   <view class="page_bg">
-    <view>
+    <!-- <view>
       <view class="hover_button">
         <view class="hover_button_index hover_button_1" bindtap="xiuyixiu">秀一秀</view>
         <view class="hover_button_index hover_button_2" bindtap="shuaxin">刷新</view>
         <view class="hover_button_index hover_button_3"></view>
       </view>
-    </view>
-    <scroll-view scroll-y style="height: 100%;overflow:hidden;margin-top:50rpx;" bindscrolltolower="scrollHandler">
+    </view> -->
+    <scroll-view scroll-y class="panl" bindscrolltolower="scrollHandler" catchtouchstart='touchStart' catchtouchend="touchEnd" catchtouchmove="touchMove" animation="{{animation}}">
       <view class="panel" wx:for="{{mydata}}" wx:for-item="data">
       <view class="mycontent">
         <view class="content_panel_head">
@@ -54,5 +54,7 @@
       </view>
       </view>
     </scroll-view>
+    <view class="panel_border"></view>
+    <view class="xiuyixiu" bindtap="xiuyixiu"><view class="xiuyixiu_wenzi">秀一秀</view></view>
   </view>
 </view>
